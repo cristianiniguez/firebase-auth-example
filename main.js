@@ -1,3 +1,17 @@
+const loggedOutLinks = document.querySelectorAll('.logged-out')
+const loggedInLinks = document.querySelectorAll('.logged-in')
+
+// Login check
+const loginCheck = user => {
+  if (user) {
+    loggedInLinks.forEach(link => link.style.display = 'block')
+    loggedOutLinks.forEach(link => link.style.display = 'none')
+  } else {
+    loggedOutLinks.forEach(link => link.style.display = 'block')
+    loggedInLinks.forEach(link => link.style.display = 'none')
+  }
+}
+
 // Sign up
 const signupForm = document.querySelector('#signup-form')
 
@@ -42,6 +56,41 @@ logout.addEventListener('click', e => {
   })
 })
 
+// Google Login
+const googleButton = document.querySelector('#google-login')
+
+googleButton.addEventListener('click', () => {
+  const provider = new firebase.auth.GoogleAuthProvider()
+  auth.signInWithPopup(provider)
+    .then(result => {
+      signinForm.reset()
+      $('#signin-modal').modal('hide')
+      console.log('google signin')
+      console.log(result)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
+// Facebook Login
+const facebookButton = document.querySelector('#facebook-login')
+
+facebookButton.addEventListener('click', () => {
+  console.log('facebook')
+  const provider = new firebase.auth.FacebookAuthProvider()
+  auth.signInWithPopup(provider)
+    .then(result => {
+      signinForm.reset()
+      $('#signin-modal').modal('hide')
+      console.log('facebook-signin')
+      console.log(result)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+})
+
 // Posts
 const postsList = document.querySelector('#posts')
 const setupPosts = data => {
@@ -66,6 +115,7 @@ const setupPosts = data => {
 // Events
 // list for auth state changes
 auth.onAuthStateChanged(user => {
+  loginCheck(user)
   if (user) {
     fs.collection('posts')
       .get()
