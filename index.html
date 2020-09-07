@@ -34,6 +34,14 @@
       </div>
     </div>
   </nav>
+  <!-- Main content -->
+  <div class="container p-4">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <ul class="list-group" id="posts"></ul>
+      </div>
+    </div>
+  </div>
   <!-- Modal -->
   <!-- Modal Signup -->
   <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -100,6 +108,7 @@
   <!-- TODO: Add SDKs for Firebase products that you want to use
     https://firebase.google.com/docs/web/setup#available-libraries -->
   <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
 
   <script>
     // Your web app's Firebase configuration
@@ -115,6 +124,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const auth = firebase.auth()
+    const fs = firebase.firestore()
   </script>
   <!-- Custom Code -->
   <script src="main.js"></script>
