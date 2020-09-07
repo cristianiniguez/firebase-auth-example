@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Auth Example</title>
+  <!-- BOOTSTRAP CDN -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#signin-modal">SignIn</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" data-toggle="modal" data-target="#signup-modal">SignUp</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" id="logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Modal -->
+  <!-- Modal Signup -->
+  <div class="modal fade" id="signup-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Signup</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="signup-form">
+            <div class="form-group">
+              <input type="email" id="signup-email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <input type="password" id="signup-password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">SignUp</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Signin -->
+  <div class="modal fade" id="signin-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Signin</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="form-group">
+              <input type="email" id="login-email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <input type="password" id="login-password" class="form-control" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">SignIn</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+  <!-- Firebase Scripts -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB3jQ1uABeI5cA4T04O1McAp-qdh42NEBo",
+      authDomain: "fb-auth-example-61f74.firebaseapp.com",
+      databaseURL: "https://fb-auth-example-61f74.firebaseio.com",
+      projectId: "fb-auth-example-61f74",
+      storageBucket: "fb-auth-example-61f74.appspot.com",
+      messagingSenderId: "225481685328",
+      appId: "1:225481685328:web:5100ebc86695dfba6e5455"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth()
+  </script>
+  <!-- Custom Code -->
+  <script src="main.js"></script>
+</body>
+
+</html>
